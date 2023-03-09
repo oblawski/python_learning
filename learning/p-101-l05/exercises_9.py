@@ -1,4 +1,7 @@
-"""TUPLES"""
+from __future__ import print_function
+import copy
+
+# """TUPLES"""
 
 # my_first_tuple = (1, 2, 3, 4, 5, 6)
 #
@@ -49,7 +52,7 @@
 # new_tuple = my_name[1:]
 # print(new_tuple)
 
-"""LISTS"""
+# """LISTS"""
 #
 # n = list(input())
 # print(n)
@@ -75,32 +78,122 @@
 # numbers = [1,2,3,4,5]
 # squares = [num**2 for num in numbers]
 # print(squares)
+#
+# # exercise 9.2.1
+# food = ["rice", "beans"]
+# print(food)
+#
+# # exercise 9.2.2
+# food.append("broccoli")
+# print(food)
+#
+# # exercise 9.2.3
+# food.extend(("bread", "pizza"))
+# print(food)
+#
+# # exercise 9.2.4
+# print(food[0:2])
+#
+# # exercise 9.2.5
+# print(food[-1])
+#
+# # exercise 9.2.6
+# breakfast = "eggs,fruit,orange juice".split(",")
+# print(breakfast)
+#
+# # exercise 9.2.7
+# print(len(breakfast) == 3)
+#
+# # exercise 9.2.8
+# lengths = [len(word) for word in breakfast]
+# print(lengths)
 
-# exercise 9.2.1
-food = ["rice", "beans"]
-print(food)
+# TODO: Implement this part of code in future project
+# def board_size(height, width):
+#     game_board = []
+#     for i in range(height):
+#         game_board.append(width * ['-'])
+#     return game_board
+#
+#
+# board = board_size(3, 3)
+# for element in board:
+#     print(' '.join(element))
+# TODO: make a function to replace any element in a board and then print it
 
-# exercise 9.2.2
-food.append("broccoli")
-print(food)
+# """copying a list"""
 
-# exercise 9.2.3
-food.extend(("bread", "pizza"))
-print(food)
+# animals = ["lion", "tiger", "cat"]
+# large_cats = animals
+# large_cats.append("Tiger")
+# print(animals)
+#
+# """original list has also been changed"""
+#
+# animals = ["lion", "tiger", "cat"]
+# large_cats = animals[:]
+# large_cats.append("leopard")
+# print(large_cats)
+# print(animals)
+#
+# """copying list of lists"""
+# matrix1 = [[1, 2], [3, 4]]
+# matrix2 = matrix1[:]
+# matrix2[0] = [5, 6]
+# print(matrix1)
+# print(matrix2)
+#
+# """when you try to change 1st element in 2nd list in matrix:"""
+# matrix2[1][0] = 1
+# print(matrix2)
+# print(matrix1)
+# # both matrixes changed 2nd list's value # SHALLOW COPY - PŁYTKIE KOPIOWANIE (?)
+#
+# """To copy lists and all its elements - deep copy"""
+# # import copy !!!
+# matrix3 = copy.deepcopy(matrix1)
+# matrix3[1][0] = 3
+# print(matrix1)
+# print(matrix3)
 
-# exercise 9.2.4
-print(food[0:2])
+"""SORTING LISTS"""
+# .sort() method - by default, the list is sorted in alphabetical or numerical order
 
-# exercise 9.2.5
-print(food[-1])
+colors = ["red", "blue", "yellow", "green"]
+colors.sort()
+print(colors)
 
-# exercise 9.2.6
-breakfast = "eggs,fruit,orange juice".split(",")
-print(breakfast)
+numbers = [5, 3, 7, 31, 2]
+numbers.sort()
+print(numbers)
 
-# exercise 9.2.7
-print(len(breakfast) == 3)
+colors.sort(key=len)
+print(colors)
 
-# exercise 9.2.8
-lengths = [len(word) for word in breakfast]
-print(lengths)
+
+def get_second_element(item):
+    return item[1]
+
+
+items = [[4, 1], [1, 2], [-9, 0]]
+items.sort(key=get_second_element)
+print(items)
+
+# exercise 9.4.1
+data = ((1, 2), (3, 4))
+
+# exercise 9.4.2
+count = 1
+for i in data:
+    print(f"Row {count} sum: {sum(i)}")
+    count += 1
+
+# exercise 9.4.3
+numbers = [4, 3, 2, 1]
+
+# exercise 9.4.4
+number1 = numbers[:]
+
+#exercise 9.4.5
+numbers.sort()
+print(numbers)
